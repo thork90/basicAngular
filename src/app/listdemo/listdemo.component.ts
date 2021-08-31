@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
+import { EventModel } from './event-model';
 
-export class EventModel {
-  id: number = 0;
-  name: string = "";
 
-}
 @Component({
   selector: 'app-listdemo',
   templateUrl: './listdemo.component.html',
@@ -17,15 +14,18 @@ export class ListDemoComponent {
     this.events = [
       {
         id: 1,
-        name: 'SZIGET'
+        name: 'SZIGET',
+        pic: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Sziget_Magyar_Dal.jpg'
       },
       {
         id: 2,
-        name: 'SZIN'
+        name: 'SZIN',
+        pic: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Sziget_Magyar_Dal.jpg'
       },
       {
         id: 3,
-        name: 'BALATON'
+        name: 'BALATON',
+        pic: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Sziget_Magyar_Dal.jpg'
       }
     ];
     console.log('megjott a listdemo')
@@ -36,8 +36,9 @@ export class ListDemoComponent {
   }
 
 
-  add(newEventNameInput: any) {
-console.log(newEventNameInput);
+  add(newEventNameInput: HTMLInputElement) {
+    this.events = [...this.events, new EventModel(5, newEventNameInput.value)];
+    newEventNameInput.value = "";
 
   }
 

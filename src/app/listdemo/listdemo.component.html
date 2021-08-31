@@ -1,5 +1,6 @@
 <ul>
     <li *ngFor="let ev of events">{{ev.name}}
+        <!-- <img [src]="ev.pic" alt=""> -->
         <button (click)="delete(ev.id)">remove</button>
     </li>
 </ul>
