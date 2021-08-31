@@ -1,0 +1,15 @@
+<ul>
+    <li *ngFor="let ev of events">{{ev.name}}
+        <button (click)="delete(ev.id)">remove</button>
+    </li>
+</ul>
+
+
+<input type="text" #newEventNameInput>
+<button (click)="add(newEventNameInput)">save</button>
+
+<pre>
+
+    {{events |json}}
+    
+    </pre>
