@@ -13,22 +13,32 @@ export class ListDemoComponent {
   constructor() {
     this.events = [
       {
-        id: 1,
+        id: 2,
         name: 'SZIGET',
         pic: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Sziget_Magyar_Dal.jpg'
       },
       {
-        id: 2,
+        id: 3,
         name: 'SZIN',
         pic: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Sziget_Magyar_Dal.jpg'
       },
       {
-        id: 3,
+        id: 1,
         name: 'BALATON',
         pic: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Sziget_Magyar_Dal.jpg'
       }
     ];
     console.log('megjott a listdemo')
+    const puf = this.events.reduce((x, y) => {
+      //   if (x.id > y.id) {
+      //     return x;
+      //   } else {
+      //     return y;
+      //   }
+      return x.id > y.id ? x : y;
+    }).id
+
+    console.log(puf);
   }
 
   delete(id: number) {
@@ -37,7 +47,8 @@ export class ListDemoComponent {
 
 
   add(newEventNameInput: HTMLInputElement) {
-    this.events = [...this.events, new EventModel(5, newEventNameInput.value)];
+    const maxId = this.events.reduce((x, y) => x.id > y.id ? x : y).id;
+    this.events = [...this.events, new EventModel(maxId+1, newEventNameInput.value)];
     newEventNameInput.value = "";
 
   }
