@@ -3,7 +3,11 @@ export class EventModel {
     name: string = "";
     pic?: string = "";
   
-    constructor(id: number, name: string, pic = '') {
+
+
+
+
+    constructor(name: string, id = 0, pic = '') {
       //Object.assign  constructor()
       this.id = id;
       this.name = name;

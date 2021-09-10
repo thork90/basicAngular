@@ -7,13 +7,15 @@ import { AlmaComponent } from './alma/alma.component';
 import { EventComponent } from './event/event.component';
 import { FormsModule } from '@angular/forms';
 import { ListDemoComponent } from './listdemo/listdemo.component';
+import { AzenpipomPipe } from './listdemo/azenpipom.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlmaComponent,
     EventComponent,
-    ListDemoComponent
+    ListDemoComponent,
+    AzenpipomPipe
   ],
   imports: [
     BrowserModule,

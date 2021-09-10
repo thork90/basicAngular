@@ -1,13 +1,24 @@
 <ul>
-    <li *ngFor="let ev of events">{{ev.name}}
+    <li *ngFor="let ev of events">
+        {{ev.name | uppercase | azenpipom:3}}
         <!-- <img [src]="ev.pic" alt=""> -->
+        <button (click)="edit(ev.id)">edit</button>
         <button (click)="delete(ev.id)">remove</button>
     </li>
 </ul>
 
 
-<input type="text" #newEventNameInput>
-<button (click)="add(newEventNameInput)">save</button>
+<div>
+
+<label for="eventname"> Uj esemeny neve</label>
+<input type="text" #newEventNameInput id="eventname" [value]="modifyEvent.name">
+</div>
+<div>
+<label for="eventpic"> Uj eseményhez tartozó kép UrL</label>
+
+<input type="text" #newEventPicInput id="eventpic" [value]="modifyEvent.pic">
+</div>
+<button (click)="save(newEventNameInput, newEventPicInput)">save</button>
 
 <pre>
 
